@@ -1,4 +1,4 @@
-var ws_url = "ws://10.17.6.221:5000";
+/*var ws_url = "ws://10.17.6.221:5000";
 var websocket = new WebSocket(ws_url);
 
 websocket.onopen = function(event){
@@ -57,4 +57,24 @@ function MessageAdd(message) {
 	var char_messages = document.getElementById("chat-messages");
 	chat_messages.insertAdjacentHTML("beforeend", message);
 	chat_messages.scrollTop = chat_messages.scrollHeight;
+}*/
+
+// Get username from cookies
+/*let user = cookie.get('user');
+if (!user) {
+	// Ask for the username if there is none set already
+	user = prompt('Enter username:');
+	if(!user){
+		alert('We cannot work with you like that!');
+	} else {
+		// Store it in the cookies for future use
+		cookie.set('user', user);
+	}
+}*/
+var name1 = prompt("Enter username:");
+if(!name1){
+	alert("Invalid username");
+} else {
+	var element = document.getElementById("user1");
+	element.innerHTML = name1;
 }
