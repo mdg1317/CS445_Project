@@ -8,10 +8,6 @@ const updateCounter = ctx => {
 	ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length);
 };
 
-// Send new message to everyone
-const sendMessage = ctx => {
-	ctx.io.emit('message', ctx.data);
-};
 
 server([
 	get('/', ctx => render('index.html')),
@@ -19,6 +15,9 @@ server([
 	socket('connect', updateCounter),
   	//socket router to call the updateCounter method when a user leaves the chatroom
 	socket('disconnect', updateCounter),
-	//socket router to call the sendMessage when a user leaves the chatroom
-  	socket('message', sendMessage)
+	//socket router to send a message 
+  	socket('message', ctx => {
+    		console.log(ctx.data);
+    		ctx.io.emit('message', ctx.data);
+  	})
 ]);
