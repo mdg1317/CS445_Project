@@ -71,10 +71,44 @@ if (!user) {
 		cookie.set('user', user);
 	}
 }*/
-var name1 = prompt("Enter username:");
-if(!name1){
+
+var user = prompt("Enter username:");
+if(!user){
 	alert("Invalid username");
 } else {
 	var element = document.getElementById("user1");
-	element.innerHTML = name1;
+	element.innerHTML = user;
 }
+
+
+var socket = io();
+
+
+socket.on('count', function (data) {
+  $('.user-count').html(data);
+});
+
+
+socket.on('message', function (data) {
+  $('.chat').append('<p><strong>' + data.name1 + '</strong>: ' + data.message + '</p>');
+});
+
+
+$('form').submit(function (e) {
+  
+  e.preventDefault();
+
+  
+  var message = $(e.target).find('input').val();
+
+ 
+  socket.emit('message', {
+    user: cookie.get('user') || 'Anonymous',
+    message: message
+  });
+
+ 
+  e.target.reset();
+  $(e.target).find('input').focus();
+});
+
