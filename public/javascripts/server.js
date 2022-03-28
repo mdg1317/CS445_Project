@@ -14,5 +14,11 @@ const sendMessage = ctx => {
 };
 
 server([
-	
+	get('/', ctx => render('index.html')),
+  	//Socket router to call the updateCounter method when a new user joins the room
+	socket('connect', updateCounter),
+  	//socket router to call the updateCounter method when a user leaves the chatroom
+	socket('disconnect', updateCounter),
+	//socket router to call the sendMessage when a user leaves the chatroom
+  	socket('message', sendMessage)
 ]);
