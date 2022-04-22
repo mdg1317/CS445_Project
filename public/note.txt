@@ -1,0 +1,6 @@
+To run this project, navigate to this directory and run the following commands
+npm i socket.io
+npm i --save-dev nodemon
+npm run devStart
+
+running these comands starts up the server which is necessary for useres to send the messages to each other
