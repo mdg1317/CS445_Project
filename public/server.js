@@ -15,7 +15,7 @@ io.on('connection', socket => {
   
   //executes during the send message event 
   socket.on('send-chat-message', message => {
-    //broadcasts message to the server
+    //broadcasts objects that store the message being sent and the name of the sender
     socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
   })
   
