@@ -1,4 +1,4 @@
-/* This is a filler comment for Github */
+
 /* ./public/style.css */
 /* Code from https://serverjs.io/tutorials/chat/ */
  body {
@@ -7,7 +7,7 @@
       margin: 0;
       display: flex;
       justify-content: center;
-	background: #ece1ce;
+	background: #ffffff;
     }
 
     #message-container {
@@ -17,19 +17,19 @@ background: #89a780
     }
 
     #message-container div {
-      background-color: #c7dcb2;
+      background-color: #d9c4ec;
       padding: 5px;
     }
 
     #message-container div:nth-child(2n) {
-      background-color: #89a780;
+      background-color: #b19cd8;
     }
 
     #send-container {
       position: fixed;
       padding-bottom: 30px;
       bottom: 0;
-      background-color: #a2937e;
+      background-color: #ffffff;
       max-width: 1200px;
       width: 80%;
       display: flex;
@@ -37,6 +37,6 @@ background: #89a780
 
     #message-input {
       flex-grow: 1;
-	background: #89a780
+	background: #b19cd8
     }
  
