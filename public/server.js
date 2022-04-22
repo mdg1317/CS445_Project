@@ -1,5 +1,7 @@
 //creates server on port 3000
 const io = require('socket.io')(3000)
+//date variable for timestamps
+const d = new Date();
 
 //list of users currently connected to the chatroom
 const users = {}
@@ -15,8 +17,10 @@ io.on('connection', socket => {
   
   //executes during the send message event 
   socket.on('send-chat-message', message => {
+    //gets date and time message is sent
+    date = d.getHours() + ":" + d.getMinutes() + ", " + d.toDateString();
     //broadcasts objects that store the message being sent and the name of the sender
-    socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
+    socket.broadcast.emit('chat-message', { message: message, name: users[socket.id], date: date })
   })
   
   //executes during the disconnect event
