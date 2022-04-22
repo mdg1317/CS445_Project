@@ -17,7 +17,7 @@ socket.emit('new-user', name)
 //this triggers when the chat-message occurs, or when a someone sends a new message
 socket.on('chat-message', data => {
   //appends the message to the user's screen along with the name of the sender
-  appendMessage(`${data.name}: ${data.message}`)
+  appendMessage(`${data.name}: ${data.message}: ${data.date}`)
 })
 //this triggers when the "user-connected" message occurs, or when a new user joins the chatroom
 socket.on('user-connected', name => {
