@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    //startup script
     "devStart": "nodemon server.js"
   },
   "author": "",
